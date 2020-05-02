@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root{
+  --mainGrey: #f5f5f5;
+  --mainWhite: #ffffff;
+  --mainBlack: #3f3f3f;
+  --darkGrey: #8e8e8e;
+}
+
+body{
+  font-family: 'Comic Neue', cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+  /* letter-spacing: 0.01rem; */
+  /* font-size: 1.8rem; */
+  line-height: 1.5em;
+}
+
+.code{
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--mainWhite);
+  margin: 2rem 0;
+
+  tab-size: 1.5em;
+  background: rgb(40, 44, 52);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.counter{
+  color: green;
+  margin: 3rem 0;
+  text-transform: capitalize;
+}
+
+
+.post-image span{
+  display: block;
+  max-width: 100% !important;
+  margin: 2rem;
+}
+
+.no-cover.main-header {
+  min-height: 160px;
+  max-height: 40vh;
+  background: #f5f8fa;
+}
+
+.main-header {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 5rem;
+  text-align: center;
+  background: #222 no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Centres vertically yo. (IE8+) */
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.page-title {
+  margin: 10px 0 10px 0;
+  font-size: 5rem;
+  letter-spacing: -1px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.8);
+  -webkit-animation: fade-in-down 0.6s;
+  animation: fade-in-down 0.6s both;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.page-description {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.01rem;
+  color: rgba(0,0,0,0.5);
+  -webkit-animation: fade-in-down 0.9s;
+  animation: fade-in-down 0.9s both;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}

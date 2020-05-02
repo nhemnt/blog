@@ -1,0 +1,141 @@
+---
+title: State in functional component
+slug: state-in-functional-component
+image: ./images/state-in-functional-component.png
+date: 2020-05-02
+author: Hemant Negi
+authorContact: https://github.com/nhemnt
+tags: ["react"]
+---
+
+
+
+
+In this article I want to show you how to use state in functional component in React.
+
+But first let me give you a brief introduction to React Hooks from the [documentation](https://reactjs.org/docs/hooks-overview.html):
+
+## What is hooks?
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+
+This example renders a counter. When you click the button, it increments the value:
+
+
+<div className ="code">
+
+ ```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+ ``` 
+ 
+ </div>
+
+
+Here, **useState** is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It’s similar to this.setState in a class, except it doesn’t merge the old and new state together. 
+
+The only argument to useState is the initial state. In the example above, it is 0 because our counter starts from zero. Note that unlike this.state, the state here doesn’t have to be an object — although it can be if you want. The initial state argument is only used during the first render.
+
+
+## Declaring multiple state variables
+
+You can use the State Hook more than once in a single component:
+
+<div className ="code">
+
+ ```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    function ExampleWithManyStates() {
+    // Declare multiple state variables!
+    const [name, setName] = useState("Hemant Negi");
+    const [age, setAge] = useState(25);
+    const [favFood, handleFavFood] = useState(
+      ["Pizza", "Chole Bhature", "Cheeseburger"]);
+    // ...
+  }
+  );
+}
+ ``` 
+ 
+ </div>
+
+
+## How to use state in functional component?
+
+Now we can use setState in functional component by using hooks. Here we are using **setState** using **useState** in functional component.
+
+
+<div className ="code">
+
+ ```javascript
+
+import React, { useState } from "react"
+
+const intialState = {
+  name: "Hemant Negi",
+  age: 25,
+  github: "https://github.com/nhemnt",
+}
+
+function StateInFunctionalComponent() {
+  // Declare a new state variable, which we'll call "state"
+  const [state, setState] = useState(intialState)
+
+  const handleChange = event => {
+    const { name, value } = event.target
+    setState({
+      ...state,
+      [name]: value,
+    })
+  }
+  const { name, age, github } = state
+  return (
+    <div>
+      <p>
+        <span>Name: </span>{" "}
+        <input type="text" name="name" onChange={handleChange} value={name} />
+      </p>
+      <p>
+        <span>Age: </span>{" "}
+        <input type="text" name="age" onChange={handleChange} value={age} />
+      </p>
+      <p>
+        <span>Github: </span>{" "}
+        <input type="text" name="github" onChange={handleChange} value={github} />
+      </p>
+    </div>
+  )
+}
+
+ ``` 
+ 
+ </div>
+
+
+
+
+## Rules of Hooks
+Hooks are JavaScript functions, but they impose two additional rules:
+
+1. Only call Hooks at the top level. Don’t call Hooks inside loops, conditions, or nested functions.
+2. Only call Hooks from React function components. Don’t call Hooks from regular JavaScript functions.
